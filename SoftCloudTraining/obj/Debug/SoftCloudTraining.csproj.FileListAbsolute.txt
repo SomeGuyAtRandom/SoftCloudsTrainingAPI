@@ -54,6 +54,6 @@ c:\users\sam\documents\visual studio 2015\Projects\SoftCloudTraining\SoftCloudTr
 c:\users\sam\documents\visual studio 2015\Projects\SoftCloudTraining\SoftCloudTraining\bin\System.Web.WebPages.Deployment.xml
 c:\users\sam\documents\visual studio 2015\Projects\SoftCloudTraining\SoftCloudTraining\bin\System.Web.WebPages.Razor.xml
 c:\users\sam\documents\visual studio 2015\Projects\SoftCloudTraining\SoftCloudTraining\bin\Antlr3.Runtime.pdb
+c:\users\sam\documents\visual studio 2015\Projects\SoftCloudTraining\SoftCloudTraining\obj\Debug\SoftCloudTraining.csprojResolveAssemblyReference.cache
 c:\users\sam\documents\visual studio 2015\Projects\SoftCloudTraining\SoftCloudTraining\obj\Debug\SoftCloudTraining.dll
 c:\users\sam\documents\visual studio 2015\Projects\SoftCloudTraining\SoftCloudTraining\obj\Debug\SoftCloudTraining.pdb
-c:\users\sam\documents\visual studio 2015\Projects\SoftCloudTraining\SoftCloudTraining\obj\Debug\SoftCloudTraining.csprojResolveAssemblyReference.cache

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SoftCloudTraining.DAL
 {
-    interface ICandidateDb
+    public interface ICandidateDb
     {
         IEnumerable<Candidate> Get();
         Candidate Get(int id);

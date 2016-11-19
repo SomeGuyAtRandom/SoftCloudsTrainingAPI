@@ -34,6 +34,7 @@ namespace SoftCloudTraining.DAL
             CandidateDbCtx.candidates.Add(c9);
 
         }
+
         public void Delete(int id)
         {
             foreach (Candidate c in candidates)
@@ -66,15 +67,10 @@ namespace SoftCloudTraining.DAL
 
         public void Insert(Candidate candidate)
         {
-
-            CandidateDbCtx.candidates.Add(new Candidate() { id = CandidateDbCtx.nextId++,
-                developer = candidate.developer,
-                name = candidate.name,
-                phone = candidate.phone,
-                qa = candidate.qa,
-                resumeId = candidate.resumeId,
-                yearsOfExperience = candidate.yearsOfExperience
-            });
+            Candidate candidateToAdd = new Candidate();
+            candidateToAdd = candidate;
+            candidateToAdd.id = CandidateDbCtx.nextId++;
+            CandidateDbCtx.candidates.Add(candidateToAdd);
             
         }
 

@@ -9,8 +9,16 @@ using System.Web.Http;
 
 namespace SoftCloudTraining.Controllers
 {
+    /// created: 2014-11-17 Ray Andrade 
+    /// 
+    /// updated: 2014-11-18 Ray Andrade 
+    /// 
+    /// <summary>  
+    ///  Purpose: Class created for training exercise.  
+    /// </summary>  
     public class CandidateController : ApiController
     {
+        /// local database context
         private ICandidateDb db;
 
         public CandidateController()
@@ -18,19 +26,36 @@ namespace SoftCloudTraining.Controllers
             this.db = new CandidateDbCtx();
 
         }
-        // GET: api/Candidate
+
+        /// This constructor is designed to use as a method to inject the database context into a
+        /// prodcution, test or development environment
+        public CandidateController(ICandidateDb context)
+        {
+            this.db = context;
+
+        }
+        // GET: softclouds/candidate
+        /// <summary>
+        /// Used to get the complete list of candidates
+        /// </summary>
+        /// <returns>A List<Candidate> candidates</returns>
         public IEnumerable<Candidate> Get()
         {
             return this.db.Get();
         }
 
-        // GET: api/Candidate/5
+        // GET: softclouds/candidate/5
+        /// <summary>
+        /// Gets a cadidate object by id
+        /// </summary>
+        /// <param name="id">used to match the returned object</param>
+        /// <returns></returns>
         public Candidate Get(int id)
         {
             return this.db.Get(id); 
         }
 
-        // POST: api/Candidate
+        // POST: softclouds/Candidate
         public HttpResponseMessage Post([FromBody]Candidate candidate)
         {
             try
@@ -47,7 +72,7 @@ namespace SoftCloudTraining.Controllers
             }
         }
 
-        // PUT: api/Candidate/5
+        // PUT: api/Candidate/{candidate}
         public HttpResponseMessage Put(int id, [FromBody]Candidate candidate)
         {
             try
@@ -74,10 +99,14 @@ namespace SoftCloudTraining.Controllers
                 var response = Request.CreateResponse(HttpStatusCode.OK);
                 return response;
             }
-            catch 
+            catch(Exception ex) 
             {
-                throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.InternalServerError));
-            }
+                if (ex.Message.Equals("Item does not exist to delete."))
+                {
+                    return new HttpResponseMessage(HttpStatusCode.NotFound);
+                }
+                return new HttpResponseMessage(HttpStatusCode.InternalServerError);
+           }
         }
     }
 }
